@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useQuery, useQueryClient } from "react-query";
 
 function App() {
   const [searchVal, setSearchVal] = useState("");
@@ -8,20 +9,20 @@ function App() {
   const charsArr = [...charsSet]; // to arr
   console.log(charsArr.length);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await fetch(
-          `https://rickandmortyapi.com/api/character/?name=${searchVal}` // fetch by name
-        );
-        const data = await res.json();
-        setChars(data.results.map((char) => char.name)); //mapping through data and extracting name
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, [searchVal]); // call everytime input value changes
+  const getData = async () => {
+    try {
+      const res = await fetch(
+        `https://rickandmortyapi.com/api/character/?name=${searchVal}` // fetch by name
+      );
+      const data = await res.json();
+      setChars(data.results.map((char) => char.name)); //mapping through data and extracting name
+      // data.results is the array of object that var the passed in char in the name
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const q = useQuery(["characters", searchVal], getData); // everytime searchVal changes, we call getData
 
   return (
     <div className="flex items-center justify-center flex-col m-y-10">
