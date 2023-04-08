@@ -1,0 +1,44 @@
+Rick-Morty-Search-Bar
+Created a search bar where you're able to search for names in a database using prefixes.
+
+Names are from the Rick and Morty Database Link : https://rickandmortyapi.com/documentation/#get-all-characters
+
+Names you can search : 'rick sanchez',
+
+'morty smith',
+
+'summer smith',
+
+'beth smith',
+
+'jerry smith',
+
+'abadango cluster princess',
+
+'abradolf lincler',
+
+'adjudicator rick',
+
+'agency director',
+
+'alan rails',
+
+'albert einstein',
+
+'alexander',
+
+'alien googah',
+
+'alien morty',
+
+'alien rick',
+
+'amish cyborg',
+
+'annie',
+
+'antenna morty',
+
+'antenna rick',
+
+'ants in my eyes johnson'
