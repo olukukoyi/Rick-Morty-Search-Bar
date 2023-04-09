@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
+import { Link } from "react-router-dom";
 
 function App() {
   const [searchVal, setSearchVal] = useState("");
@@ -7,7 +8,6 @@ function App() {
 
   const charsSet = new Set(chars); // to set
   const charsArr = [...charsSet]; // to arr
-  console.log(charsArr.length);
 
   const getData = async () => {
     try {
@@ -41,13 +41,19 @@ function App() {
         <div className="flex flex-col space-y-4 mt-10 border w-1/2 items-center justify-center pt-4">
           {charsArr.map((char) => (
             // instead of displaying an h1, we can render a link and route them somerwhere
-            <h1
+            <Link
+              to={`characters/${char}`}
+              className="border-b w-full flex items-center justify-center"
+            >
+              {char}
+            </Link>
+          ))}
+          {/* <h1
               className="border-b w-full flex items-center justify-center"
               key={char}
             >
               {char}
-            </h1>
-          ))}
+            </h1> */}
         </div>
       )}
     </div>

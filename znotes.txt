@@ -1,3 +1,5 @@
 debounce logic optimises and reduces the count of api calls
 
 implement debounce and throttle logic
+
+add onclick to change route and render data
